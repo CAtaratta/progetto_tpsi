@@ -23,3 +23,9 @@ print("---- turnovers rearranged ----")
 for s in spins:
     print(s)
 
+bwt = ""
+for s in spins:
+    bwt += s[-1]
+
+print("---- BWT ----")
+print(bwt)
