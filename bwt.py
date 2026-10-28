@@ -6,4 +6,9 @@ print(string)
 spins = []
 for i in range(len(string)):
     spins.append(string[i:] + string[:i])
-    print(spins)
+
+print("---- turnovers ----")
+for s in spins:
+    print(s)
+
+
