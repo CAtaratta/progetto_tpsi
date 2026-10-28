@@ -11,4 +11,9 @@ print("---- turnovers ----")
 for s in spins:
     print(s)
 
+spins.sort()
+
+print("---- turnovers rearranged ----")
+for s in spins:
+    print(s)
 
