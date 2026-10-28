@@ -4,6 +4,6 @@ print("---- added $ ----")
 string+="$"
 print(string)
 spins = []
-for i in range(le(string)):
+for i in range(len(string)):
     spins.append(string[i:] + string[:i])
     print(spins)
