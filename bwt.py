@@ -33,6 +33,6 @@ def calcola_bwt(string: str) -> str:
 
     return bwt
 
- if __name__ == "__main__":
-    parola = input("Insert a word: ")
-    calcola_bwt
+    if __name__ == "__main__":
+        word = input("Insert a word: ")
+        calcola_bwt(word)

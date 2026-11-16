@@ -1,14 +1,8 @@
 import socket
+from bwt import calcola_bwt
 
 HOST = "127.0.0.1"
 PORT = 65432
-
-def burrows_wheeler_transform(text: str) -> str:
-    if not text.endswith("$"):
-        text += "$"
-    rotations = [text[i:] + text[:i] for i in range(len(text))]
-    sorted_rotations = sorted(rotations)
-    return "".join(rotation[-1] for rotation in sorted_rotations)
 
 def start_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
@@ -20,17 +14,19 @@ def start_server():
         while True:
             conn, addr = server_socket.accept()
             with conn:
-                print(f"Connessione stabilita con {addr}")
+                print(f"\nConnessione stabilita con {addr}")
                 data = conn.recv(1024)
                 if not data:
                     continue
                 
                 word = data.decode("utf-8")
-                print(f"Stringa ricevuta: '{word}'")
+                print(f"Stringa ricevuta dal client: '{word}'")
                 
-                result = burrows_wheeler_transform(word)
+                # Esegue il tuo algoritmo definito in bwt.py
+                result = calcola_bwt(word)
+                
                 conn.sendall(result.encode("utf-8"))
-                print(f"Risultato BWT inviato: '{result}'\n")
+                print(f"Risultato BWT inviato al client: '{result}'")
 
 if __name__ == "__main__":
     start_server()
