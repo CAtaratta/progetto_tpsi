@@ -1,6 +1,6 @@
 def calcola_bwt(string: str) -> str:
     print("----------- Burrows-Wheeler's algorithm -----------")
-    string = input ("Insert a word:  ")
+    print(f"Word received: {string}")
     print("---- added $ ----")
     string+="$"
     print(string)
